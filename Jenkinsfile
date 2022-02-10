@@ -21,7 +21,7 @@ node('packer'){
         git 'https://github.com/ikambarov/packer.git'
     }
 
-    withCredentials([usernamePassword(credentialsId: 'aws-key', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
+    withCredentials([usernamePassword(credentialsId: 'awk-key', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
         withEnv(["AWS_REGION=${aws_region_var}", "PACKER_AMI_NAME=${aminame}"]) {
             stage("Validate"){
                 sh """
